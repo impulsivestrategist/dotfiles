@@ -1,0 +1,32 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = 450
+    height = 700
+    offset = 0x19
+    padding = 2
+    horizontal_padding = 20
+    transparency = 0
+    font = "Terminus Regular 16"
+    format = "<b>%s</b>\n%b"
+
+[urgency_low]
+    foreground = "#458588"
+    background = "#000000"
+    #frcolor = "#"
+    hlcolor ="#458588"
+    timeout = 20
+    
+[urgency_normal]
+    foreground = "#ebdbb2"
+    background = "#000000"
+    frcolor = "#ebdbb2"
+    hlcolor = "#ebdbb2"
+    timeout = 20
+
+[urgency_critical]
+    background = "#990f00"
+    foreground = "#ffffff"
+    frcolor = "#ff5286"
+    hlcolor = "#ffffff"
+    #timeout = 100
