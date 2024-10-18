@@ -1,0 +1,82 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=20
+markup=none
+
+#-------------------------------------------------
+
+[volume]
+separator=false
+label=VOL:
+interval=1
+signal=10
+STEP=5%
+# command=volume-pipewire/volume-pipewire -f
+color=#FFDD8C
+
+[wifi]
+separator=false
+command=$HOME/.config/i3blocks/i3wifi
+interval=600
+color=#8480FF
+
+[battery]
+separator=false
+label=BAT: 
+command=$HOME/.config/i3blocks/i3battery
+interval=30
+color=#FFDD8C
+
+[memory_usage]
+separator=false
+label=MEM: 
+command=$HOME/.config/i3blocks/i3ram
+#command=free -h | awk '/^Mem:/ {print $3}' | tr -d "i"
+interval=30
+color=#73EC8B
+
+[cpu_temp]
+separator=false
+label=CPU: 
+command=$HOME/.config/i3blocks/i3cpu
+interval=10
+color=#ED6F6F
+
+[weather]
+separator=false
+command=$HOME/.config/i3blocks/i3weather
+interval=1800
+color=#DE73FF
+
+[time]
+separator=false
+#command=date '+%m-%d %A %H:%M '
+command=$HOME/.config/i3blocks/i3time
+interval=5
+color=#8CFFE8
