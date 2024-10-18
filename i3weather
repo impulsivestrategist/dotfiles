@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+case $BLOCK_BUTTON in
+	1) notify-send -w "$(curl wttr.in?q0TFu)" ;;
+esac
+
+echo "$(curl -Ss 'wttr.in?0TQ' | cut -c 16- | tr -d "+ " | head -2 | sed 's/([0-9]*)//' | xargs echo)"
