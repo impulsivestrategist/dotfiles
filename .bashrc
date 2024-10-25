@@ -4,12 +4,21 @@
  #   #  m"""#   """m  #   #   #     #     
  ##m#"  "mm"#  "mmm"  #   #   #     "#mm" 
 
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+shopt -s checkwinsize
+HISTCONTROL=ignoreboth
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -c'
 
-PS1='[ \033[1;92m\u@\033[1;92m\h\033[1;94m \w\033[0m ]\$ '
+#PS1='\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\W\[\033[0m\]S '
+PS1='\[\033[1;41;30m\]$(pwd)\[\033[0m\] ❯ '
 
-alias nano='vim'
+words=("cozy" "comfy" "fresh" "clean" "snug" "breeze" "zen" "money" "cash" "kino")
+random_word=${words[RANDOM % ${#words[@]}]}
+fonts=("mono9" "mono12" "ascii9" "ascii12" "future" "smblock" "pagga" "smbraille" "smmono9" "smmono12")
+random_font=${fonts[RANDOM % ${#fonts[@]}]}
+toilet "$random_word" -f "$random_font" | lolcat
 
 alias pacman='sudo pacman'
 alias cl='clear'
@@ -20,16 +29,9 @@ alias mv='mv -iv'
 alias cp='cp -iv'
 alias dd='dd status=progress'
 alias doppler='mpv https://radar.weather.gov/ridge/standard/KIND_loop.gif'
-alias dopplerR='mpv https://radar.weather.gov/ridge/standard/CENTGRLAKES_loop.gif'
-alias dopplerN='mpv https://radar.weather.gov/ridge/standard/CONUS-LARGE_loop.gif'
-#alias top='top -o %MEM -d 5'
-# Color
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip -c'
+#alias top='top -o %MEM -E g -d 5'
 
 export PATH="$HOME/.finishedScripts:$PATH"
 
-# use the arrow keys to find the previous times that command was run
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
